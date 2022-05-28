@@ -58,7 +58,9 @@ class RegistrationForm extends React.Component {
 
 		console.log('Json  ', JSON.stringify(data));
 		console.log('Json  ', InviteCode);
-		fetch('https://PetNode.217105922.repl.co/api/v1/codes/' + InviteCode)
+
+    if (InviteCode != null){
+      		fetch('https://PetNode.217105922.repl.co/api/v1/codes/' + InviteCode)
 			.then(status)
 			.then(json)
 			.then(data => {
@@ -68,6 +70,29 @@ class RegistrationForm extends React.Component {
 				console.error(errorResponse);
 				alert(`Error: ${errorResponse}`);
 			});
+    }else{
+    	fetch('https://PetNode.217105922.repl.co/api/v1/users', {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(status)
+			.then(json)
+			.then(data => {
+				// For you TODO: display success message and/or redirect
+				console.log(data);
+				this.context.regComplete();
+				//     alert(`Registration Completed! Pls. press login or green button to continue `)
+			})
+			.catch(errorResponse => {
+				// For you TODO: show nicely formatted error message and clear form
+				console.error(errorResponse);
+				alert(`Error: ${errorResponse}`);
+			});
+    }
+
 
 		// fetch('https://PetNode.217105922.repl.co/api/v1/users', {
 		// 	method: 'POST',
