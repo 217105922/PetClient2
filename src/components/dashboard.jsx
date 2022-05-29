@@ -22,8 +22,8 @@ function Dashboard() {
 
       {({ logout, user }) => (
        <>
-               {user.role == "staff" && <TableDemo/>}   
-                 {user.role == "admin" && <TableDemo/>}  
+               {user.role == "staff" && <TableDemo authbasic={btoa(`${user.username}:${user.password}`)} />}   
+                 {user.role == "admin" && <TableDemo authbasic={btoa(`${user.username}:${user.password}`)} />}  
  
        </>
 
