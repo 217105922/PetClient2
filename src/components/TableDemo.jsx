@@ -64,7 +64,6 @@ function TableDemo() {
         //   setRows(id=1,title=pet.title,alltext=pet.alltext,summary=pet.summary))
 
         for(let i=0; i < data.length; i++){          
-          
           setRows(oldArray=>[...oldArray,{id:data[i].id,title:data[i].title,alltext:data[i].alltext,summary:data[i].summary}])
           }
       
@@ -115,7 +114,9 @@ function TableDemo() {
         console.log("saved : ", rows);
         setDisable(true);
         setOpen(true);
-    };
+        console.log('handleSave called');
+        console.log(JSON.stringify(rows));
+    }
   
     // The handleInputChange handler can be set up to handle
     // many different inputs in the form, listen for changes 
@@ -126,20 +127,23 @@ function TableDemo() {
         const list = [...rows];
         list[index][name] = value;
         setRows(list);
-    };
-  
+ 
+       console.log('handleInputChange called');
+     };
+
     // Showing delete confirmation to users
     const handleConfirm = () => {
         setShowConfirm(true);
+      console.log('handleConfirm called');
     };
   
     // Handle the case of delete confirmation where 
     // user click yes delete a specific row of id:i
     const handleRemoveClick = (i) => {
-        const newlist = [...rows];
-        newlist.splice(i, 1);
-        console.log(newlist);
-        setRows(newlist);
+        // const newlist = [...rows];
+        // newlist.splice(i, 1);
+        // console.log(newlist);
+        // setRows(newlist);
         setShowConfirm(false);
     };
   
@@ -211,9 +215,9 @@ function TableDemo() {
         >
           <TableHead>
             <TableRow>
-              <TableCell>First Name</TableCell>
-              <TableCell>Last Name</TableCell>
-              <TableCell align="center">City</TableCell>
+              <TableCell>title</TableCell>
+              <TableCell>summary</TableCell>
+              <TableCell align="center">alltext</TableCell>
               <TableCell align="center"> </TableCell>
             </TableRow>
           </TableHead>
@@ -221,49 +225,49 @@ function TableDemo() {
             {rows.map((row, i) => {
               return (
                 <div>
-                  <TableRow>
+                  <TableRow key={row.id}>
                     {isEdit ? (
                       <div>
                         <TableCell padding="none">
                           <input
-                            value={row.firstname}
-                            name="firstname"
+                            value={row.title}
+                            name="title"
+                            
                             onChange={(e) => handleInputChange(e, i)}
                           />
                         </TableCell>
                         <TableCell padding="none">
                           <input
-                            value={row.lastname}
-                            name="lastname"
+                            value={row.summary}
+                            name="summary"
                             onChange={(e) => handleInputChange(e, i)}
                           />
                         </TableCell>
                         <TableCell padding="none">
                           <select
                             style={{ width: "100px" }}
-                            name="city"
-                            value={row.city}
+                            name="alltext"
+                            value={row.alltext}
                             onChange={(e) => handleInputChange(e, i)}
                           >
                             <option value=""></option>
-                            <option value="Karanja">Karanja</option>
-                            <option value="Hingoli">Hingoli</option>
-                            <option value="Bhandara">Bhandara</option>
-                            <option value="Amaravati">Amaravati</option>
-                            <option value="Pulgaon">Pulgaon</option>
+                            <option value="adopted">adopted</option>
+                            <option value="adopt">adopt</option>
+                            <option value="special">special</option>
+                          
                           </select>
                         </TableCell>
                       </div>
                     ) : (
                       <div>
                         <TableCell component="th" scope="row">
-                          {row.firstname}
+                          {row.title}
                         </TableCell>
                         <TableCell component="th" scope="row">
-                          {row.lastname}
+                          {row.summary}
                         </TableCell>
                         <TableCell component="th" scope="row" align="center">
-                          {row.city}
+                          {row.alltext}
                         </TableCell>
                         <TableCell
                           component="th"
