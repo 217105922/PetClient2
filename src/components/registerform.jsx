@@ -54,9 +54,19 @@ class RegistrationForm extends React.Component {
 
 	onFinish = values => {
 		console.log('Received values of form: ', values);
-		const { confirm, InviteCode, ...data } = values; // ignore the 'confirm' value
+		const { confirm, InviteCode, ...data } = values;
+    // ignore the 'confirm' value
+const staff = {
+    role: "staff"
+};
 
-		console.log('Json  ', JSON.stringify(data));
+const Newdata = {
+    ...data,
+    ...staff
+};
+
+    
+		console.log('Json  ', JSON.stringify(Newdata));
 		console.log('Json  ', InviteCode);
 
     if (InviteCode != null){
@@ -64,7 +74,34 @@ class RegistrationForm extends React.Component {
 			.then(status)
 			.then(json)
 			.then(data => {
-				console.log('successful data = ' + data);
+        
+			console.log('successful data = ' + data);
+    
+        
+      fetch('https://PetNode.217105922.repl.co/api/v1/users', {
+			method: 'POST',
+			body: JSON.stringify(Newdata),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(status)
+			.then(json)
+			.then(data => {
+				// For you TODO: display success message and/or redirect
+				console.log(data);
+				this.context.regComplete();
+				//     alert(`Registration Completed! Pls. press login or green button to continue `)
+			})
+			.catch(errorResponse => {
+				// For you TODO: show nicely formatted error message and clear form
+				console.error(errorResponse);
+				alert(`Error: ${errorResponse}`);
+			});
+
+
+
+        
 			})
 			.catch(errorResponse => {
 				console.error(errorResponse);
@@ -164,7 +201,7 @@ class RegistrationForm extends React.Component {
 					<Form.Item name="InviteCode" label="InviteCode">
 						<Input />
 					</Form.Item>
-
+          
 					<Form.Item {...tailFormItemLayout}>
 						<Button type="primary" htmlType="submit">
 							Register

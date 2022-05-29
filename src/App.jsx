@@ -13,9 +13,14 @@ import Img_Page from './components/img_Page';
 import Register from './components/register';
 import UserContext from './contexts/user';
 import {useNavigate } from 'react-router-dom';
+
+
 const { Header, Content, Footer, Button} = Layout;
-
-
+import {
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+} from "mdbreact";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 class App extends React.Component {
 constructor(props) {

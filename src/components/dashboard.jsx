@@ -1,15 +1,44 @@
-import React from 'react';
+
 import '../App.css';
 import DetailArticle from '../detailarticle'
-
+import TableDemo from "./TableDemo";
+import UserContext from '../contexts/user';
+import React, { useContext } from 'react';
+// import { status, json } from '/utilities/requestHandlers';
+// import SearchUser from './userSearch'
+// import ImageUpload from './ImageUpload'
+// import { Row, Col, Space } from 'antd';
+// import { Avatar, Image } from 'antd';
+// import { UserOutlined } from '@ant-design/icons';
 function Dashboard() {
+
+
+
+
+    const user = useContext(UserContext);
+
   return (
-      
-        
-      <DetailArticle />
-     
+    <UserContext.Consumer>
+
+      {({ logout, user }) => (
+       <>
+               {user.role == "staff" && <TableDemo/>}   
+                 {user.role == "admin" && <TableDemo/>}  
+ 
+       </>
+
+      )}
+    </UserContext.Consumer>
+
     
-   )
+  )
+
+
+     
+
+
+    
+
       
 }
 
