@@ -75,7 +75,7 @@ regComplete() {
         <Space>
         <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/about">About</Link>
+        <Link to="/about">Favourite</Link>
   
           {!context.user.loggedIn&& <Link to="/login">Login</Link>}           {context.user.loggedIn&& <Link to="/account" style={{color:"red",background: "#91d5ff"}} type ="link" > Account: {context.user.username}  </Link>} 
           {!context.user.registerOK&&!context.user.loggedIn&&<Link to="/register">Register</Link>}			      
@@ -87,7 +87,7 @@ regComplete() {
 						<Route path="/dashboard/:id" element={<DetailArticle />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login"element={<Login />} />
-						<Route path="/about" element={<About />} />	
+						<Route path="/about" element={<About  />} />	
             <Route path="/account" element={<Account />} />	
             <Route path="/img_Page" element={<Img_Page />} />	
 				</Routes>			

@@ -23,6 +23,9 @@ class ImageUpload extends React.Component {
     this.setState({
       uploading: true
     });
+
+
+    console.log(formData);
   let requestOptions = {
   method: 'POST',
   body: formData,

@@ -11,7 +11,7 @@ import { UserOutlined } from '@ant-design/icons';
 function Profile(props) {
 
   const user = useContext(UserContext);
-
+  
   return (
     <UserContext.Consumer>
 

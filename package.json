@@ -25,10 +25,12 @@
     "react-router-dom": "^6.3.0",
     "vite": "^2.3.8"
   },
+  
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     {
       "loose": true
     }
   ]
+  
 }

@@ -112,7 +112,7 @@ function TableDemo(props) {
     fetch('https://PetNode.217105922.repl.co/api/v1/dogs/', {
       method: 'POST',
       body: JSON.stringify({
-        id: rows.length + 100, title: "",
+        id: rows.length + 1, title: "",
         alltext: "", summary: "",
         imageurl: "", authorid: ""
       }),
@@ -285,8 +285,8 @@ function TableDemo(props) {
             <TableRow>
               <TableCell>title</TableCell>
               <TableCell>summary</TableCell>
-              <TableCell align="center">alltext</TableCell>
-              <TableCell align="center"> </TableCell>
+              <TableCell>alltext</TableCell>
+              <TableCell> </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -324,6 +324,13 @@ function TableDemo(props) {
                             <option value="special">special</option>
 
                           </select>
+                        </TableCell>
+                         <TableCell padding="none">
+                          <input
+                            value={row.imageurl}
+                            name="imageurl"
+                            onChange={(e) => handleInputChange(e, i)}
+                          />
                         </TableCell>
                       </div>
                     ) : (
