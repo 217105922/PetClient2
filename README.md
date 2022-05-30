@@ -1,13 +1,12 @@
-## Running React on Repl.it
+# Front end page of the The Canine Shelte
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+using the [React](https://reactjs.org/)  to build 
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+##Live website
 
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
+https://petclient2.217105922.repl.co/
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the `.replit` file.
+
+## replit link 
+https://replit.com/@217105922/PetClient2?v=1
