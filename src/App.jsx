@@ -94,7 +94,7 @@ regComplete() {
 				</Content>
 				
        <Footer>
-					<p style={{ color: 'green' }}>VT6003CEM Demo</p>
+					<p style={{ color: 'green' }}>The Canine Shelter</p>
 				</Footer>
 			</Router>	
   </UserContext.Provider>  

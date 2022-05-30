@@ -28,7 +28,7 @@ class ImageUpload extends React.Component {
   body: formData,
   redirect: 'follow'
   };
-		fetch('https://Rest-API-andDB.cycheng1688.repl.co/api/v1/images',requestOptions)
+		fetch('https://PetNode.217105922.repl.co/api/v1/images',requestOptions)
       .then((response) => response.json())
 			.then((result) => {
         message.success('upload successfully.');

@@ -37,7 +37,7 @@ const useStyles = makeStyles({
 
 
 
-function TableDemo() {
+function TableDemo(props) {
   const user = useContext(UserContext);
   // Creating style object
   const classes = useStyles();
@@ -107,8 +107,7 @@ function TableDemo() {
         imageurl: "", authorid: ""
       },
     ]);
-
-    console.log(`${user.username}:${user.password}`);
+  console.log(authbasic);
 
     fetch('https://PetNode.217105922.repl.co/api/v1/dogs/', {
       method: 'POST',
