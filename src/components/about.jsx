@@ -9,13 +9,14 @@ import { MDBCol, MDBFormInline, MDBIcon } from "mdbreact";
 import UserContext from '../contexts/user';
 
 function About() {
-
+  // create variable and function
   const [posts, setposts] = useState([]);
+  // create variable and function
   const [userliked, setuserliked] = useState([]);
-  
+  // create variable with usercontxt
   const user = useContext(UserContext);
 
-  
+  //fetch data from database
   useEffect(() => {
     console.log("user");
     console.log(user.user.id);
@@ -78,6 +79,7 @@ function About() {
     <>
       <h2 style={{ color: 'green' }}> Welcome to The Canine Shelter</h2>
       <Row type="flex" justify="space-around">
+        
         {cardList}
       </Row>
 

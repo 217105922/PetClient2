@@ -46,14 +46,14 @@ function TableDemo(props) {
   // which we can update by calling on setRows function
   const [rows, setRows] = useState([]);
 
-  // Initial states
+  // Initial states variable and function
   const [open, setOpen] = React.useState(false);
   const [isEdit, setEdit] = React.useState(false);
   const [disable, setDisable] = React.useState(true);
   const [showConfirm, setShowConfirm] = React.useState(false);
   const authbasic = props.authbasic;
 
-
+//fetch data from database
   useEffect(() => {
 
     console.log('component mounted!')
@@ -108,7 +108,7 @@ function TableDemo(props) {
       },
     ]);
   console.log(authbasic);
-
+//fetch data to database
     fetch('https://PetNode.217105922.repl.co/api/v1/dogs/', {
       method: 'POST',
       body: JSON.stringify({
